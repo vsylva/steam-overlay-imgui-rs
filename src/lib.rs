@@ -612,7 +612,7 @@ unsafe fn d3d12_hook_thread() {
     let present_addr = sig_scan(
         scan_start,
         size_of_image,
-        "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 83 EC ? 41 8B E8",
+        "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 83 EC ? 41 8B F0",
         0,
         None,
     );
@@ -620,7 +620,7 @@ unsafe fn d3d12_hook_thread() {
     let resize_buffers_addr = sig_scan(
         scan_start,
         size_of_image,
-        "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC ? 44 8B E2",
+        "40 53 55 56 57 41 54 41 56 41 57 48 83 EC ? 44 8B E2",
         0,
         None,
     );
