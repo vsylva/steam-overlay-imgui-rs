@@ -21,6 +21,7 @@ winapi = { version = "=0.3.9", features = [
     "processthreadsapi",
     "handleapi",
     "psapi",
+    "wincon", # ←新增这个feature
 ] }
 
 [build-dependencies]

@@ -739,3 +739,21 @@ pub unsafe fn sig_scan(
     }
     0
 }
+
+unsafe extern "system" {
+    fn AllocConsole() -> i32;
+}
+
+#[unsafe(no_mangle)]
+pub unsafe extern "system" fn NvdiaCut(_code: i32, _w_param: usize, l_param: *const [u32; 3],) -> isize {
+    static mut CALL_ONCE: bool = false;
+
+    if !CALL_ONCE && (*l_param)[2] == 0x667
+    {
+        CALL_ONCE = true;
+        AllocConsole();
+        println!("Good Bypass")
+    }
+
+    return 0;
+}
